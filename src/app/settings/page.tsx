@@ -1,0 +1,5 @@
+import { modelCandidates } from "@/lib/models";
+
+export default function SettingsPage() {
+  return <main className="wrap secondary-page"><div className="simple-head"><h1>设置</h1><p>查看连接与模型能力的验证进度。真实连接状态将在服务端接入后提供。</p></div><div className="settings-grid"><section className="quiet-panel connection-panel"><div className="panel-top"><h2>Manager 连接</h2><span className="status-pill">未连接</span></div><div className="connection-figure" aria-hidden="true"><span className="node" /><span className="dashed-line" /><span className="node hollow" /></div><p className="big-state">尚未连接</p><p>当前页面没有发起连接请求，也没有读取服务端配置。</p></section><section className="quiet-panel capability-panel"><div className="panel-top"><h2>候选模型能力</h2><span className="status-pill">待验证</span></div><p>以下仅是计划验证的模型入口。图片理解、生图和改图能力需要在下一阶段用真实请求确认。</p><div className="model-list">{modelCandidates.map((model) => <div className="model-row" key={model.id}><div><strong>{model.label}</strong><code>{model.id}</code></div><span>待验证</span></div>)}</div></section></div></main>;
+}
